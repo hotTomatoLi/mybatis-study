@@ -7,7 +7,7 @@
     <properties resource="conf.properties"/>
 
     <typeAliases>
-        <typeAlias type="com.leegebe.mybatis.model.'" alias="user" />
+        <typeAlias type="com.leegebe.mybatis.model.User" alias="user" />
     </typeAliases>
 
     <environments default="development">
@@ -15,15 +15,15 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
-                <property name="url" value="${jdbc.url}"/>
-                <property name="username" value="${url}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
                 <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <mapper resource="com/mybatis3/mappers/StudentMapper.xml"/>
+        <mapper resource="mappers/UserMapper.xml"/>
     </mappers>
 
 
