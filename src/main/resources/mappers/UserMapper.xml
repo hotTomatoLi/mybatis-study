@@ -5,7 +5,7 @@
 <mapper namespace="com.leegebe.mybatis.mapper.UserMapper">
     <resultMap id="baseResultMap" type="user">
         <id column="USER_ID" property="userId" javaType="String" jdbcType="VARCHAR" />
-        <result column="ID" property="id" javaType="int" jdbcType="INT" />
+        <result column="ID" property="id" javaType="int" jdbcType="INTEGER" />
         <result column="USER_NAME" property="userName" javaType="String" jdbcType="VARCHAR" />
         <result column="LOGIN_NAME" property="loginName" javaType="String" jdbcType="VARCHAR" />
         <result column="PASSWORD" property="password" javaType="String" jdbcType="VARCHAR" />
@@ -19,6 +19,6 @@
 
     <insert id="insertUser">
         INSERT INTO USER(USER_ID,USER_NAME,LOGIN_NAME,PASSWORD,CREATE_TIME,UPDATE_TIME)
-        VALUES(userId,userName,loginName,password,createTime,updateTime)
+        VALUES(#{userId},#{userName},#{loginName},#{password},#{createTime},#{updateTime})
     </insert>
 </mapper>
