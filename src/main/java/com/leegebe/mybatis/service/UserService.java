@@ -20,10 +20,9 @@ public class UserService {
      */
     public User addUser(User user){
         SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();
-        SqlSession sqlSession = factory.openSession();
+        SqlSession sqlSession = factory.openSession(true);
         userMapper = sqlSession.getMapper(UserMapper.class);
         userMapper.insertUser(user);
-        sqlSession.commit();
         return user;
     }
 
@@ -34,7 +33,7 @@ public class UserService {
      */
     public User selectUser(String userId){
         SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();
-        SqlSession sqlSession = factory.openSession();
+        SqlSession sqlSession = factory.openSession(true);
         userMapper = sqlSession.getMapper(UserMapper.class);
         return userMapper.selectUser(userId);
     }
