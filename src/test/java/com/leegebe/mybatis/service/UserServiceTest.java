@@ -17,7 +17,7 @@ public class UserServiceTest {
         user.setLoginName("test");
         user.setUserName("测试");
         user.setPassword("123456");
-        user.setUserId("1");
+        user.setUserId("1230");
         user.setValidated(2);
         UserService userService = new UserService();
         userService.addUser(user);

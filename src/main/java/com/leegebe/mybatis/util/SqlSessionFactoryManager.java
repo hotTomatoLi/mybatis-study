@@ -26,8 +26,10 @@ public class SqlSessionFactoryManager {
 
         try {
             if(factory == null) {
+                //读取默认配置文件
                 Reader reader = Resources.getResourceAsReader(fileName);
                 SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+                //建立工厂
                 factory = builder.build(reader);
                 builder = null;
             }

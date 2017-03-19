@@ -102,11 +102,17 @@ public class XMLConfigBuilder extends BaseBuilder {
   private void parseConfiguration(XNode root) {
     try {
       //issue #117 read properties first
+      //解析mybatis-config.xml中指定的配置，在properties节点中声明的配置信息
       propertiesElement(root.evalNode("properties"));
+      //解析所有的settings节点中的配置信息，在settings配置的内容与Configuration.class中属性一致
       Properties settings = settingsAsProperties(root.evalNode("settings"));
+      //加载自定义的配置类，具体作用有待考察
       loadCustomVfs(settings);
+      //注册所有的type别名，实际上就是向typeAliasRegistry里的TYPE_ALIASES（一个hashmap）添加元素
       typeAliasesElement(root.evalNode("typeAliases"));
+      //解析插件
       pluginElement(root.evalNode("plugins"));
+      //解析相应的工厂类
       objectFactoryElement(root.evalNode("objectFactory"));
       objectWrapperFactoryElement(root.evalNode("objectWrapperFactory"));
       reflectorFactoryElement(root.evalNode("reflectorFactory"));
